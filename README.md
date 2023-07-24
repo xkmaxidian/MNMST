@@ -32,16 +32,15 @@ Data/151675: Sample DLPFC 151675 dataset.
 
 
 
-## Compared tools
+## Compared spatial domain identification algorithms
 
-Tools that are compared include: 
+Algorithms that are compared include: 
 
 * [SCANPY](https://github.com/scverse/scanpy-tutorials)
 * [Giotto](https://github.com/drieslab/Giotto)
 * [BayesSpace](https://github.com/edward130603/BayesSpace)
 * [stLearn](https://github.com/BiomedicalMachineLearning/stLearn)
 * [SpaGCN](https://github.com/jianhuupenn/SpaGCN)
-* [Seurat](https://github.com/satijalab/seurat)
 * [SEDR](https://github.com/JinmiaoChenLab/SEDR/)
 * [DeepST](https://github.com/JiangBioLab/DeepST)
 
