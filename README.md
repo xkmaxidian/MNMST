@@ -29,3 +29,22 @@ MNMST.m - The main function of MNMST.
 run_MNMST.m - A script with a real spatial transcriptomcs data to show how to run the code.
 
 Data/151675: Sample DLPFC 151675 dataset.
+
+
+
+## Compared tools
+
+Tools that are compared include: 
+
+* [SCANPY](https://github.com/scverse/scanpy-tutorials)
+* [Giotto](https://github.com/drieslab/Giotto)
+* [BayesSpace](https://github.com/edward130603/BayesSpace)
+* [stLearn](https://github.com/BiomedicalMachineLearning/stLearn)
+* [SpaGCN](https://github.com/jianhuupenn/SpaGCN)
+* [Seurat](https://github.com/satijalab/seurat)
+* [SEDR](https://github.com/JinmiaoChenLab/SEDR/)
+* [DeepST](https://github.com/JiangBioLab/DeepST)
+
+### Contact:
+
+Please send any questions or found bugs to Xiaoke Ma [xkma@xidian.edu.cn](mailto:xkma@xidian.edu.cn).
