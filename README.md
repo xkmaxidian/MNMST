@@ -169,7 +169,7 @@ SPPMI.m - construct PMI based on input graph (if sparse, if not, use PMI.m).
 
 softth.m - singular value thresholding operator, which is employed to ensure low-rank.
 
-solve_l1l2.m - solve $\|\cdot\|_{1,2}$ in objective function.
+solve_l1l2.m - solve $\|\cdot\|_{2,1}$ in objective function.
 
 self_rep.m - Sparse self representation algorithm, which is employed to construct cell expression network.
 
