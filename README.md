@@ -157,7 +157,7 @@ Python support packages: scanpy, igraph, pandas, numpy, scipy, scanpy, anndata, 
 
 ##### The coding here is a generalization of the algorithm given in the paper. MNMST is written in Python and MATLAB programming language. To use, please clone this repository and follow the instructions provided in the README.md.
 
-Files:
+File Descriptions:
 
 Data/151675: Sample DLPFC 151675 dataset.
 
