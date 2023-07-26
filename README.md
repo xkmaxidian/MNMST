@@ -151,9 +151,9 @@ sc.pl.spatial(enhanced_data, color=['mnmst_pred', 'refined_pred', 'Ground Truth'
 
 ## System Requirements
 
-Python support packages: scanpy, igraph, pandas, numpy, scipy, scanpy, anndata, sklearn, seaborn.
+Python support packages  (Python 3.9.15): scanpy, igraph, pandas, numpy, scipy, scanpy, anndata, sklearn, seaborn.
 
-
+Matlab version: Matlab R2022b.
 
 ##### The coding here is a generalization of the algorithm given in the paper. MNMST is written in Python and MATLAB programming language. To use, please clone this repository and follow the instructions provided in the README.md.
 
