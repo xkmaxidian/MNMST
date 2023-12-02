@@ -1,4 +1,4 @@
-# MNMST v1.0
+# MNMST v1.1
 
 ## Multi-Layer Network Model leverages identification of spatial domains from spatial transcriptomics data
 
@@ -7,6 +7,16 @@
 MNMST is a multi-layer network model to characterize and identify spatial domains in spatial transcriptomics data by integrating gene expression and spatial location information of cells. MNMST jointly decomposes multi-layer networks to learn discriminative features of cells, and identifies spatial domains by exploiting topological structure of affinity graph of cells. The proposed multi-layer network model not only outperforms state-of-the-art baselines on benchmarking datasets, but also precisely dissect cancer-related spatial domains. Furthermore, we also find that structure of spatial domains can be precisely characterized with topology of affinity graph of cells, proving the superiority of network-based models for spatial transcriptomics data. Moreover, MNMST provides an effective and efficient strategy for integrative analysis of spatial transcriptomic data, and also is applicable for processing spatial omics data of various platforms. In all, MNMST is a desirable tool for analyzing spatial transcriptomics data to facilitate the understanding of complex tissues.
 
 ![MNMST workflow](docs/MNMST.png)
+
+## Update
+
+**The MNMST is now fully implemented in Python and supports GPU acceleration using PyTorch!**
+
+##### Now Supported platforms:
+
+![Python](docs/icons-python.png)![Python](docs/icons-pytorch.png)![Python](docs/icons-matlab.png)
+
+
 
 ## Tutorial
 
@@ -60,122 +70,109 @@ sc.pp.pca(enhanced_data, n_comps=100)
 low_dim_x = enhanced_data.obsm['X_pca']
 ```
 
-2. Next, output enhanced expression and constructed Cell Spatial Network $W^{[s]}$：
+2. Next, construct Cell Expression Network $W^{[e]}$ by using input expression data:
 
 ```python
-pd.DataFrame(low_dim_x).to_csv('data_for_matlab/' + section_id + '_exp_data.csv')
-pd.DataFrame(weights_graph).to_csv('data_for_matlab/' + section_id + '_adj.csv')
+from network import sparse_self_representation
+from sklearn.metrics.pairwise import cosine_similarity
+
+n_spot = low_dim_x.shape[0]
+n_neighbor = 15
+init_W = cosine_similarity(low_dim_x)
+cos_init = np.zeros((n_spot, n_spot))
+for i in range(n_spot):
+    vec = init_W[i, :]
+    distance = vec.argsort()[:: -1]
+    for t in range(n_neighbor + 1):
+        y = distance[t]
+        cos_init[i, y] = init_W[i, y]
+# We use the cosine similarity matrix to initialize Self-Representation Learning (SRL)
+C = sparse_self_representation(low_dim_x.T, init_w=cos_init, alpha=1, beta=1)
 ```
 
-3. Load proprecessed  gene expression and $W^{[s]}$ use MATLAB:
+3. After cell expression network constructed, we start joint NMF and affinity graph learning, where Z is the learned affinity graph:
 
 ```matlab
-% load proprecessed gene expression data
-X = csvread('data_for_matlab/151675_arg_data.csv', 1, 1)';
-% load cell spatial network
-weights_adj = csvread('data_for_matlab/151675_adj.csv', 1, 1);
-% load ground truth label
-real_label = csvread('data_for_matlab/151675_real_label.csv', 1, 1);
-real_label = real_label + 1;
-% calculate domain number
-cls_num = max(unique(real_label));
+from MNMST import MNMST_representation
+Z = MNMST_representation(C, weights_graph)
 ```
 
-4. Construct Cell Expression Network $W^{[e]}$ by using input expression data:
-
-```matlab
-% We first construct nearset neighbor graph, which is employed to initialize self-representation learning and trace optimization optimization.
-options = [];
-option.Metric = 'Cosine';
-options.NeighborMode = 'KNN';
-options.k = 6;
-options.WeightMode = 'Cosine';
-cos_init = constructW(X',options);
-clear options;
-
-% Start sparse self representation here
-cell_expression_network = self_rep(cos_init, X, 100, 10);
-% After cell expression network constructed, we start joint NMF and affinity graph learning, where Z is the learned affinity graph:
-[Z, B, F1, F2] = MNMST(best_graph, weights_adj, 10, 150, 0.01);
-% finally, output the Z:
-writematrix(Z, 'matlab_rs/learned_151675.csv')
-```
-
-5. MNMST identify spatial domains by using Leiden algorithm based on the learned affinity graph:
+4. MNMST identify spatial domains by using Leiden algorithm based on the learned affinity graph:
 
 ```python
-import igraph as ig
-import leidenalg
-from natsort import natsorted
+key_added = 'representation'
+conns_key = 'representation'
+dists_key = 'representation'
 
-learned_graph_from_matlab = pd.read_csv('matlab_rs/learned_151675.csv', header=None)
-learned_graph_from_matlab = learned_graph_from_matlab.to_numpy()
-
-sources, targets = learned_graph_from_matlab.nonzero()
-ans_weight = learned_graph_from_matlab[sources, targets]
-g = ig.Graph(directed=True)
-g.add_vertices(learned_graph_from_matlab.shape[0])
-g.add_edges(list(zip(sources, targets)))
-g.es['weight'] = ans_weight
-
-partition_type = leidenalg.RBConfigurationVertexPartition
-partition_kwargs = {'weights': np.array(g.es['weight']).astype(np.float64), 'n_iterations': -1, 'seed': 42,
-                    'resolution_parameter': 1.3}
-
-part = leidenalg.find_partition(g, partition_type, **partition_kwargs)
-groups = np.array(part.membership)
-leiden_label = pd.Categorical(
-    values=groups.astype('U'),
-    categories=natsorted(map(str, np.unique(groups))),
-)
-print(leiden_label)
-enhanced_data.obs['mnmst_pred'] = leiden_label
-enhanced_data.obs["mnmst_pred"] = enhanced_data.obs["mnmst_pred"].astype('int')
-enhanced_data.obs['mnmst_pred'] = enhanced_data.obs['mnmst_pred'].astype('category')
+enhanced_data.uns[key_added] = {}
+    
+representation_dict = enhanced_data.uns[key_added]
+    
+representation_dict['connectivities_key'] = conns_key
+representation_dict['distances_key'] = dists_key
+representation_dict['var_names_use'] = enhanced_data.var_names.to_numpy()
+    
+representation_dict['params'] = {}
+representation_dict['params']['method'] = 'umap'
+enhanced_data.obsp['representation'] = Z
+sc.tl.leiden(enhanced_data, neighbors_key='representation', resolution=1.4, key_added='MNMST_CPU')
+display(enhanced_data.obs['MNMST_CPU'])
+sc.pl.spatial(enhanced_data, color=['MNMST_CPU', 'Ground Truth'])
 ```
 
-6. Visualize the spatial domain identification results and output the ARI：
+6. Additionally, MNMST can be accelerated by GPU. If you have an NVIDIA GPU, be sure to firstly install a version of [PyTorch](https://pytorch.org/) that supports it. Here is the [installation guide of PyTorch](https://pytorch.org/get-started/locally/).
 
 ```python
-refined_pred = refine(sample_id=enhanced_data.obs.index.tolist(), pred=enhanced_data.obs["mnmst_pred"].tolist(), dis=weights_graph.A, shape="hexagon")
-enhanced_data.obs["refined_pred"] = refined_pred
-enhanced_data.obs["refined_pred"] = enhanced_data.obs["refined_pred"].astype('category')
-obs_df = enhanced_data.obs.dropna()
-raw_ari = adjusted_rand_score(obs_df['Ground Truth'], obs_df['mnmst_pred'])
-refine_ari = adjusted_rand_score(obs_df['Ground Truth'], obs_df['refined_pred'])
+# First, we convert the numpy data into tensor
+from MNMST_gpu import sparse_self_representation_torch, MNMST_representation_gpu
+import torch
 
-sc.pl.spatial(enhanced_data, color=['mnmst_pred', 'refined_pred', 'Ground Truth'], title=['MNMST (ARI=%.2f)'% raw_ari, 'refine_MNMST (ARI=%.2f)'% refine_ari, 'Ground Truth'])
+device = torch.device('cuda') if torch.cuda.is_available() else 'cpu'
+cos_init_tensor = torch.from_numpy(cos_init).float().to(device)
+x_tensor = torch.from_numpy(low_dim_x.T).to(device)
+
+C_gpu = sparse_self_representation_torch(x_tensor, init_w=cos_init_tensor, alpha=1., beta=1., device=device)
+
+spatia_init_tensor = torch.from_numpy(weights_graph.A).float().to(device)
+Z_gpu = MNMST_representation_gpu(C_gpu, spatia_init_tensor, device=device)
+```
+
+7. And finally, identify and visualize the spatial domains using SCANPY framework:
+
+```
+Z_gpu = Z_gpu.detach().cpu().numpy()
+
+enhanced_data.obsp['representation'] = Z_gpu
+sc.tl.leiden(enhanced_data, neighbors_key='representation', resolution=1.4, key_added='MNMST_GPU')
+print(enhanced_data.obs['MNMST_GPU'])
+sc.pl.spatial(enhanced_data, color=['MNMST_GPU', 'Ground Truth'])
 ```
 
 
 
 ## System Requirements
 
-Python support packages  (Python 3.9.15): scanpy, igraph, pandas, numpy, scipy, scanpy, anndata, sklearn, seaborn.
+#### Python support packages  (Python 3.9.18): 
 
-Matlab version: Matlab R2022b.
+scanpy, igraph, pandas, numpy, scipy, scanpy, anndata, sklearn, seaborn, torch, leidenalg, tqdm.
 
-##### The coding here is a generalization of the algorithm given in the paper. MNMST is written in Python and MATLAB programming language. To use, please clone this repository and follow the instructions provided in the README.md.
+For more details of the used package., please refer to 'requirements.txt' file.
+
+##### The coding here is a generalization of the algorithm given in the paper. MNMST is written in Python programming language. To use, please clone this repository and follow the instructions provided in the README.md.
 
 ## File Descriptions:
 
 Data/151675: Sample DLPFC 151675 dataset.
 
-MNMST.m - The main function of MNMST.
+MNMST.py - The main function of MNMST (CPU).
 
-run_MNMST.m - A script with a real spatial transcriptomcs data to show how to run the code.
+MNMST_gpu.py - GPU version of the main function for MNMST.
 
-SPPMI.m - construct PMI based on input graph (if sparse, if not, use PMI.m).
+tutorials_mnmst.ipynb - Tutorials for MNMST.
 
-softth.m - singular value thresholding operator, which is employed to ensure low-rank.
+network.py - Auxiliary functions for the main MNMST function, including the sparse self representation learning.
 
-solve_l1l2.m - solve $\|\cdot\|_{2,1}$ in objective function.
 
-self_rep.m - Sparse self representation algorithm, which is employed to construct cell expression network.
-
-bestMap.m - permute labels of predict to match real labels as good as possible.
-
-SpectralClustering.m - We perfer use SpectralClustering to verify the learned affinity graph, and output the graph which has the highest ARI value.
 
 ## Compared spatial domain identification algorithms
 
