@@ -8,6 +8,7 @@ import numpy as np
 from sklearn.neighbors import NearestNeighbors
 import matplotlib as mpl
 from scipy.sparse import issparse
+import psutil
 
 
 # 该方法，仅当使用半径搜索邻域节点时调用
@@ -217,3 +218,39 @@ def zscore(matrix: Union[np.ndarray, csr_matrix],
     # (which occur when all values are 0, hence variance is 0)
     zscored_matrix = np.nan_to_num(zscored_matrix)
     return zscored_matrix
+
+
+def refine(sample_id, pred, dis, shape="hexagon"):
+    refined_pred = []
+    pred = pd.DataFrame({"pred": pred}, index=sample_id)
+    dis_df = pd.DataFrame(dis, index=sample_id, columns=sample_id)
+    if shape == "hexagon":
+        num_nbs = 6
+    elif shape == "square":
+        num_nbs = 4
+    else:
+        print("Shape not recongized, shape='hexagon' for Visium data, 'square' for ST data.")
+    for i in range(len(sample_id)):
+        index = sample_id[i]
+        dis_tmp = dis_df.loc[index, :][dis_df.loc[index, :] > 0]
+        nbs = dis_tmp[0: num_nbs + 1]
+        nbs_pred = pred.loc[nbs.index, "pred"]
+        self_pred = pred.loc[index, "pred"]
+        v_c = nbs_pred.value_counts()
+        if self_pred in nbs_pred:
+            if (v_c.loc[self_pred] < num_nbs / 2) and (np.max(v_c) > num_nbs / 2):
+                refined_pred.append(v_c.idxmax())
+            else:
+                refined_pred.append(self_pred)
+        else:
+            refined_pred.append(v_c.idxmax())
+    return refined_pred
+
+
+def record_memory_usage():
+    # 获取当前进程的内存信息
+    process = psutil.Process()
+    memory_info = process.memory_info()
+    # 将字节转换为 GB
+    memory_usage_gb = memory_info.rss / (1024 ** 3)
+    return memory_usage_gb
