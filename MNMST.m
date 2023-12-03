@@ -1,4 +1,4 @@
-function [Z, B] = MNMST(W1, W2, lambda, d, gamma)
+function [Z, B, F1, F2] = MNMST(W1, W2, lambda, d, gamma)
 % ---------------------------------- data pre-processing
 n = size(W1, 2);   % number of samples
 % ----------------------------------------------initialize variables
@@ -25,7 +25,7 @@ pho = 1.5;
 max_mu = 1e4;
 max_iter = 100;
 iter = 0;
-thresh = 5e-3;
+thresh = 5e-2;
 % ----------------------------------------------
 while (IsConverge == 0 && iter < max_iter)
     F1 = (B' * B) \ (B' * W1);

@@ -2,6 +2,7 @@ from typing import Tuple, Union
 
 import anndata
 import pandas as pd
+from matplotlib import pyplot as plt
 from scipy import sparse
 from scipy.sparse import csr_matrix
 import numpy as np
@@ -9,6 +10,7 @@ from sklearn.neighbors import NearestNeighbors
 import matplotlib as mpl
 from scipy.sparse import issparse
 import psutil
+from matplotlib.collections import LineCollection
 
 
 # 该方法，仅当使用半径搜索邻域节点时调用
@@ -254,3 +256,67 @@ def record_memory_usage():
     # 将字节转换为 GB
     memory_usage_gb = memory_info.rss / (1024 ** 3)
     return memory_usage_gb
+
+
+def plot_graph_weights(locations,
+                       graph,
+                       theta_graph=None,  # azimuthal angles
+                       max_weight=1,
+                       markersize=1,
+                       figsize=(8, 8),
+                       title: str = None,
+                       flip_yaxis: bool = False,
+                       ax=None,
+                       ) -> None:
+    """
+    Visualize weights in a spatial graph,
+    heavier weights represented by thicker lines
+    """
+    if ax is None:
+        fig, ax = plt.subplots(figsize=figsize)
+    else:
+        fig = ax.get_figure()
+
+    edges, weights, theta = [], [], []
+
+    if theta_graph is not None:
+        assert isinstance(theta_graph, csr_matrix)
+        assert theta_graph.shape[0] == graph.shape[0]
+
+    for start_node_idx in range(graph.shape[0]):
+
+        ptr_start = graph.indptr[start_node_idx]
+        ptr_end = graph.indptr[start_node_idx + 1]
+
+        for ptr in range(ptr_start, ptr_end):
+            end_node_idx = graph.indices[ptr]
+
+            # append xs and ys as columns of a numpy array
+            edges.append(locations[[start_node_idx, end_node_idx], :])
+            weights.append(graph.data[ptr])
+            if theta_graph is not None:
+                theta.append(theta_graph.data[ptr])
+
+    print(f"Maximum weight: {np.amax(np.array(weights))}\n")
+    weights /= np.amax(np.array(weights))
+
+    if theta_graph is not None:
+        norm = mpl.colors.Normalize(vmin=min(theta), vmax=max(theta), clip=True)
+        mapper = mpl.cm.ScalarMappable(norm=norm, cmap="bwr")
+        c = [mapper.to_rgba(t) for t in theta]
+    else:
+        c = "C0"
+
+    line_segments = LineCollection(
+        edges, linewidths=weights * max_weight, linestyle='solid', colors=c, alpha=0.7)
+    ax.add_collection(line_segments)
+
+    ax.scatter(locations[:, 0], locations[:, 1], s=markersize, c="gray", alpha=.6, )
+
+    if flip_yaxis:  # 0 on top, typical of image data
+        ax.set_ylim(ax.get_ylim()[::-1])
+
+    ax.set_aspect('equal', 'datalim')
+
+    if title is not None:
+        ax.set_title(title)
