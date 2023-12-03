@@ -22,7 +22,7 @@ MNMST is a multi-layer network model to characterize and identify spatial domain
 
 A jupyter Notebook of the tutorial is accessible from : 
 <br>
-https://github.com/xkmaxidian/MNMST/blob/main/tutorials_mnmst.ipynb
+https://github.com/xkmaxidian/MNMST/blob/main/tutorials/tutorials_mnmst.ipynb
 
 <br>
 
