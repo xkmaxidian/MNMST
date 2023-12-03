@@ -20,11 +20,15 @@ MNMST is a multi-layer network model to characterize and identify spatial domain
 
 ## Tutorial
 
-A jupyter Notebook of the tutorial is accessible from : 
+A jupyter Notebook of the tutorial for 10 $\times$ Visium is accessible from : 
 <br>
 https://github.com/xkmaxidian/MNMST/blob/main/tutorials/tutorials_mnmst.ipynb
 
 <br>
+
+We also provide the tutorials for other ST technologies, including [osmFISH](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_osmFISH.ipynb), [STARmap](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_STARmap.ipynb), and [Stereo-seq](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_stereo_seq.ipynb).
+
+
 
 Please install **jupyter notebook** in order to open this notebook.
 
