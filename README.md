@@ -2,6 +2,8 @@
 
 ## Multi-Layer Network Model leverages identification of spatial domains from spatial transcriptomics data
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10369465.svg)](https://doi.org/10.5281/zenodo.10369465)
+
 ###  Yu Wang, Zaiyi Liu, Xiaoke Ma
 
 MNMST is a multi-layer network model to characterize and identify spatial domains in spatial transcriptomics data by integrating gene expression and spatial location information of cells. MNMST jointly decomposes multi-layer networks to learn discriminative features of cells, and identifies spatial domains by exploiting topological structure of affinity graph of cells. The proposed multi-layer network model not only outperforms state-of-the-art baselines on benchmarking datasets, but also precisely dissect cancer-related spatial domains. Furthermore, we also find that structure of spatial domains can be precisely characterized with topology of affinity graph of cells, proving the superiority of network-based models for spatial transcriptomics data. Moreover, MNMST provides an effective and efficient strategy for integrative analysis of spatial transcriptomic data, and also is applicable for processing spatial omics data of various platforms. In all, MNMST is a desirable tool for analyzing spatial transcriptomics data to facilitate the understanding of complex tissues.
