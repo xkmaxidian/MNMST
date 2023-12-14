@@ -10,13 +10,17 @@ MNMST is a multi-layer network model to characterize and identify spatial domain
 
 ## Update
 
-**The MNMST is now fully implemented in Python and supports GPU acceleration using PyTorch!**
+**2023-12-07: The MNMST is now fully implemented in Python and supports GPU acceleration using PyTorch!**
+
+**2023-12-10: The MNMST Python package is now released on Pypi!**
 
 ##### Now Supported platforms:
 
 ![Python](docs/icons-python.png)![Python](docs/icons-pytorch.png)![Python](docs/icons-matlab.png)
 
+# Installation
 
+Just type 'pip install mnmstpy' in your terminal.
 
 ## Tutorial
 
@@ -26,13 +30,20 @@ https://github.com/xkmaxidian/MNMST/blob/main/tutorials/tutorials_mnmst.ipynb
 
 <br>
 
+The jupyter notebook of the tutorial for installing *mnmstpy* using pip and identifying spatial domains is accessible from:  
+
+<br>
+https://github.com/xkmaxidian/MNMST/blob/main/tutorials/tutorials_mnmstpy.ipynb
+
+<br>
+
 We also provide the tutorials for other ST technologies, including [osmFISH](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_osmFISH.ipynb), [STARmap](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_STARmap.ipynb), and [Stereo-seq](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_stereo_seq.ipynb).
 
 
 
 Please install **jupyter notebook** in order to open this notebook.
 
-### Details: 
+### Details (for source code): 
 
 1. MNMST first employs SCANPY package to load and proprecess spatial transcriptomcis data:
 
