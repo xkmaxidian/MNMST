@@ -28,11 +28,8 @@ A jupyter Notebook of the tutorial for 10 $\times$ Visium is accessible from :
 <br>
 https://github.com/xkmaxidian/MNMST/blob/main/tutorials/tutorials_mnmst.ipynb
 
-<br>
-
 The jupyter notebook of the tutorial for installing *mnmstpy* using pip and identifying spatial domains is accessible from:  
 
-<br>
 https://github.com/xkmaxidian/MNMST/blob/main/tutorials/tutorials_mnmstpy.ipynb
 
 <br>
