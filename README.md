@@ -32,6 +32,10 @@ The jupyter notebook of the tutorial for installing *mnmstpy* using pip and iden
 
 https://github.com/xkmaxidian/MNMST/blob/main/tutorials/tutorials_mnmstpy.ipynb
 
+##### Furthermore, we explore the possibility of integrating morphological information from histology images. Detailed ideas, as well as tutorial files, are accessible from:
+
+https://github.com/xkmaxidian/MNMST/blob/main/tutorials/tutorials_mnmst_histology.ipynb
+
 <br>
 
 We also provide the tutorials for other ST technologies, including [osmFISH](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_osmFISH.ipynb), [STARmap](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_STARmap.ipynb), and [Stereo-seq](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_stereo_seq.ipynb).
