@@ -14,7 +14,7 @@ MNMST is a multi-layer network model to characterize and identify spatial domain
 
 **2023-12-07: The MNMST is now fully implemented in Python and supports GPU acceleration using PyTorch!**
 
-**2023-12-10: The MNMST Python package is now released on Pypi!**
+**2023-12-13: The MNMST Python package is now released on Pypi!**
 
 ##### Now Supported platforms:
 
