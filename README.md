@@ -86,13 +86,21 @@ Environment 1:
 
 Environment 2:
 
+- System: Google Colab (Linux 6.1.58)
+
+- Python: 3.10.12
+
+- Python packages: scanpy=1.9.8, numpy=1.25.2, pandas=1.5.3, anndata=0.10.5, scipy=1.11.4, scikit-learn=1.2.2, torch=2.1.0
+
+Environment 3:
+
 - System: Windows 10
 
 - Python: 3.10.9
 
 - Python packages: scanpy=1.9.8, numpy=1.26.4, pandas=2.2.0, anndata=0.10.5, scipy=1.12.0, scikit-learn=1.4.0, torch=2.2.0
 
-Environment 3:
+Environment 4:
 
 - System: Windows 11
 
@@ -226,13 +234,15 @@ sc.pl.spatial(enhanced_data, color=['MNMST_GPU', 'Ground Truth'])
 
 ## System Requirements
 
-#### Python support packages  (Python 3.9.18): 
+#### Python support packages  (Python>=3.9): 
 
 scanpy, igraph, pandas, numpy, scipy, scanpy, anndata, sklearn, seaborn, torch, leidenalg, tqdm.
 
 For more details of the used packages, please refer to 'requirements.txt' file.
 
 ##### The coding here is a generalization of the algorithm given in the paper. MNMST is written in Python programming language. To use, please clone this repository and follow the instructions provided in the README.md.
+
+
 
 ## File Descriptions:
 
@@ -245,8 +255,6 @@ MNMST_gpu.py - GPU version of the main function for MNMST.
 tutorials_mnmst.ipynb - Tutorials for MNMST.
 
 network.py - Auxiliary functions for the main MNMST function, including the sparse self representation learning.
-
-
 
 ## Compared spatial domain identification algorithms
 
@@ -262,4 +270,12 @@ Algorithms that are compared include:
 
 ### Contact:
 
+We are continuing adding new features. Bug reports or feature requests are welcome.
+
+Last update: 02/16/2024, version 1.1.0
+
 Please send any questions or found bugs to Xiaoke Ma [xkma@xidian.edu.cn](mailto:xkma@xidian.edu.cn).
+
+### Reference
+
+Our paper is under review.
