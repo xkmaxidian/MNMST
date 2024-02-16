@@ -1,8 +1,8 @@
 import numpy as np
 from scipy.sparse.linalg import svds
 from tqdm import trange
-from network import create_sppmi_mtx
-from network import softth, solve_l1l2
+from . network import create_sppmi_mtx
+from . network import softth, solve_l1l2
 
 
 def MNMST_representation(network_exp, network_spat, lamb=10, gamma=10, dim=150):
@@ -24,7 +24,6 @@ def MNMST_representation(network_exp, network_spat, lamb=10, gamma=10, dim=150):
     pho = 1.5
     max_mu = 1e4
 
-    from network import softth, solve_l1l2
 
     epoch_iter = trange(100)
     for epoch in epoch_iter:

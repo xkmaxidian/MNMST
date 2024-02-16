@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/mnmstpy/MNMST_CPU.py
+src/mnmstpy/MNMST_GPU.py
+src/mnmstpy/__init__.py
+src/mnmstpy/network.py
+src/mnmstpy/utils.py
+src/mnmstpy.egg-info/PKG-INFO
+src/mnmstpy.egg-info/SOURCES.txt
+src/mnmstpy.egg-info/dependency_links.txt
+src/mnmstpy.egg-info/top_level.txt

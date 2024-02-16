@@ -3,7 +3,7 @@ import torch.nn.functional as F
 from tqdm import trange
 import torch.sparse as sp
 
-from network import create_sppmi_mtx
+from . network import create_sppmi_mtx
 
 
 def soft_torch(x, T):
@@ -90,7 +90,7 @@ def sparse_self_representation_torch(x, init_w, alpha=1., beta=1., device='cpu')
     return C
 
 
-def MNMST_representation_gpu(network_exp, network_spat, lamb=10., gamma=10., dim=150, device='cpu'):
+def MNMST_representation_gpu(network_exp, network_spat, lamb=10., gamma=10., dim=150, threshold=0.05, device='cpu'):
     # Variables init
     W1 = torch.from_numpy(create_sppmi_mtx(network_exp.detach().cpu().numpy(), 1)).float().to(device)
     W2 = torch.from_numpy(create_sppmi_mtx(network_spat.detach().cpu().numpy(), 1)).float().to(device)
@@ -153,7 +153,7 @@ def MNMST_representation_gpu(network_exp, network_spat, lamb=10., gamma=10., dim
 
         total_loss = err1 + err2 + err3
 
-        if max_err < 5e-2:
+        if max_err < threshold:
             break
 
         epoch_iter.set_description(
