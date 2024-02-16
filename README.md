@@ -16,13 +16,39 @@ MNMST is a multi-layer network model to characterize and identify spatial domain
 
 **2023-12-13: The MNMST Python package is now released on Pypi!**
 
+**2024-02-16: We fixed the issue where dependency were not being insatlled during the installation of MNMST.**
+
+
+
 ##### Now Supported platforms:
 
 ![Python](docs/icons-python.png)![Python](docs/icons-pytorch.png)![Python](docs/icons-matlab.png)
 
 # Installation
 
-Just type 'pip install mnmstpy' in your terminal.
+#### 1. Start by using python virtual environment with [conda](https://anaconda.org/):
+
+```
+conda create --name mnmst python=3.9
+conda activate mnmst
+pip install mnmstpy
+```
+
+(Optional) To run the notebook files in tutorials, please ensure the Jupyter package is installed in your environment:
+
+```
+conda install -n mnmst ipykernel
+python -m ipykernel install --user --name mnmst --display-name mnmst-jupyter
+```
+
+Note: If you encounter the error message "ImportError: Please install the skmisc package via `pip install --user scikit-misc`" while executing `sc.pp.highly_variable_genes(adata, flavor='seurat_v3', n_top_genes=3000)`, please execute the following command in your terminal: `pip install -i https://test.pypi.org/simple/ scikit-misc==0.2.0rc1`.
+
+### 2. From GitHub
+
+```
+git clone https://github.com/xkmaxidian/MNMST
+cd MNMST
+```
 
 ## Tutorial
 
@@ -42,9 +68,9 @@ https://github.com/xkmaxidian/MNMST/blob/main/tutorials/tutorials_mnmst_histolog
 
 We also provide the tutorials for other ST technologies, including [osmFISH](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_osmFISH.ipynb), [STARmap](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_STARmap.ipynb), and [Stereo-seq](https://github.com/xkmaxidian/MNMST/blob/09127067b9/tutorials/tutorials_stereo_seq.ipynb).
 
-
-
 Please install **jupyter notebook** in order to open this notebook.
+
+
 
 ### Details (for source code): 
 
@@ -174,7 +200,7 @@ sc.pl.spatial(enhanced_data, color=['MNMST_GPU', 'Ground Truth'])
 
 scanpy, igraph, pandas, numpy, scipy, scanpy, anndata, sklearn, seaborn, torch, leidenalg, tqdm.
 
-For more details of the used package., please refer to 'requirements.txt' file.
+For more details of the used packages, please refer to 'requirements.txt' file.
 
 ##### The coding here is a generalization of the algorithm given in the paper. MNMST is written in Python programming language. To use, please clone this repository and follow the instructions provided in the README.md.
 
