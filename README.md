@@ -26,6 +26,8 @@ MNMST is a multi-layer network model to characterize and identify spatial domain
 
 # Installation
 
+#### <font color='red'>To accelerate MNMST by using GPU: If you have an NVIDIA GPU, be sure to firstly install a version of PyTorch that supports it. When installing MNMST, the CPU version of torch will be installed by default for you. Here is the [installation guide of PyTorch](https://pytorch.org/get-started/locally/).</font>
+
 #### 1. Start by using python virtual environment with [conda](https://anaconda.org/):
 
 ```
