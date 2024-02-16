@@ -74,6 +74,34 @@ Please install **jupyter notebook** in order to open this notebook.
 
 
 
+## Versions the software has been tested on:
+
+Environment 1:
+
+- System: Linux 5.4.0
+
+- Python: 3.10.12
+
+- Python packages: scanpy=1.9.3, numpy=1.24.1, pandas=2.0.3, anndata=0.9.2, scipy=1.11.2, scikit-learn=1.3.0, torch=2.0.1
+
+Environment 2:
+
+- System: Windows 10
+
+- Python: 3.10.9
+
+- Python packages: scanpy=1.9.8, numpy=1.26.4, pandas=2.2.0, anndata=0.10.5, scipy=1.12.0, scikit-learn=1.4.0, torch=2.2.0
+
+Environment 3:
+
+- System: Windows 11
+
+- Python: 3.9.18
+
+- Python packages: scanpy=1.9.6, numpy=1.26.0, pandas=2.1.3, anndata=0.10.3, scipy=1.11.3, scikit-learn=1.3.2, torch=2.0.1
+
+
+
 ### Details (for source code): 
 
 1. MNMST first employs SCANPY package to load and proprecess spatial transcriptomcis data:
