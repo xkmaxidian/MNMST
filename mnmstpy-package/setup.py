@@ -11,17 +11,17 @@ __keywords__ = ["Spatial transcriptomics", "Spatial domain", "Network model", "J
                 "Integrative analysis"]
 __requires__ = [
     "scanpy>=1.9.3",
-    "numpy",
-    "pandas",
-    "anndata",
-    "matplotlib",
-    "scipy",
-    "scikit-learn",
-    "psutil",
-    "tqdm",
-    "leidenalg",
-    "torch>=2.0",
-    "torchvision",
+    "numpy>=1.24.0",
+    "pandas>=1.5.0",
+    "anndata>=0.9.0",
+    "matplotlib>=3.7.1",
+    "scipy>=1.11.2",
+    "scikit-learn>=1.2.2",
+    "psutil>=5.9.0",
+    "tqdm>=4.65.0",
+    "leidenalg>=0.10.1",
+    "torch>=2.0.1",
+    "torchvision>=0.15.2",
 ]
 
 setup(
