@@ -26,7 +26,7 @@ MNMST is a multi-layer network model to characterize and identify spatial domain
 
 # Installation
 
-#### <font color='red'>To accelerate MNMST by using GPU: If you have an NVIDIA GPU, be sure to firstly install a version of PyTorch that supports it. When installing MNMST, the CPU version of torch will be installed by default for you. Here is the [installation guide of PyTorch](https://pytorch.org/get-started/locally/).</font>
+#### <font color='red'>To accelerate MNMST by using GPU: If you have an NVIDIA GPU, be sure to firstly install a version of PyTorch that supports it (We recommend Pytorch >= 2.0.1). When installing MNMST without install Pytorch previous, the CPU version of torch will be installed by default for you. Here is the [installation guide of PyTorch](https://pytorch.org/get-started/locally/).</font>
 
 #### 1. Start by using python virtual environment with [conda](https://anaconda.org/):
 
@@ -88,7 +88,7 @@ Environment 1:
 
 Environment 2:
 
-- Operation System (OS): Google Colab (Linux 6.1.58)
+- Operation System (OS): [Google Colab (Linux 6.1.58)](https://colab.research.google.com/drive/19c6g02WCcj9uJlUCuyIkPXkwrnJACeEW?usp=sharing)
 
 - Python: 3.10.12
 
@@ -274,7 +274,7 @@ Algorithms that are compared include:
 
 We are continuing adding new features. Bug reports or feature requests are welcome.
 
-Last update: 02/16/2024, version 1.1.0
+Last update: 02/20/2024, version 1.1.0
 
 Please send any questions or found bugs to Xiaoke Ma [xkma@xidian.edu.cn](mailto:xkma@xidian.edu.cn).
 

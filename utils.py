@@ -123,7 +123,10 @@ def generate_spatial_weights_fixed_nbrs(
         locations, nbr_object=nbr_object, num_neighbours=num_neighbours, radius=None,
     )
     graph_out = distance_graph.copy()
-    graph_out.data = 1 / graph_out.data
+    if decay_type == 'uniform':
+        graph_out.data = np.ones_like(graph_out.data)
+    else:
+        graph_out.data = 1 / graph_out.data
     return row_normalize(graph_out, verbose=verbose), distance_graph
 
 
