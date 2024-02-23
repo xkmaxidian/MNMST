@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+mnmstpy.egg-info/PKG-INFO
+mnmstpy.egg-info/SOURCES.txt
+mnmstpy.egg-info/dependency_links.txt
+mnmstpy.egg-info/not-zip-safe
+mnmstpy.egg-info/requires.txt
+mnmstpy.egg-info/top_level.txt

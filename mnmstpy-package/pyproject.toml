@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mnmstpy"
+version = "1.1.0"
+dependencies=[
+    "scanpy>=1.9.3",
+    "numpy>=1.24.0",
+    "pandas>=1.5.0",
+    "anndata>=0.9.0",
+    "matplotlib>=3.7.1",
+    "scipy>=1.11.2",
+    "scikit-learn>=1.2.2",
+    "psutil>=5.9.0",
+    "tqdm>=4.65.0",
+    "leidenalg>=0.10.1",
+    "torch>=2.0.1",
+    "torchvision>=0.15.2",
+]
+authors = [
+  { name="Yu Wang", email="qq352542417@gmail.com" },
+]
+description = "The initial package of MNMST"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/xkmaxidian/MNMST"
+Issues = "https://github.com/xkmaxidian/MNMST/issues"
