@@ -1,6 +1,6 @@
 # MNMST v1.1
 
-## Multi-Layer Network Model leverages identification of spatial domains from spatial transcriptomics data
+## MNMST: Topology of cell networks leverages identification of spatial domains from spatial transcriptomics data
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10369465.svg)](https://doi.org/10.5281/zenodo.10369465)
 
@@ -16,7 +16,7 @@ MNMST is a multi-layer network model to characterize and identify spatial domain
 
 **2023-12-13: The MNMST Python package is now released on Pypi!**
 
-**2024-02-16: We fixed the issue where dependency were not being insatlled during the installation of MNMST.**
+**2024-02-20: We fixed the issue where dependency were not being insatlled during the installation of MNMST.**
 
 
 
@@ -45,7 +45,7 @@ python -m ipykernel install --user --name mnmst --display-name mnmst-jupyter
 
 Note: If you encounter the error message "ImportError: Please install the skmisc package via `pip install --user scikit-misc`" while executing `sc.pp.highly_variable_genes(adata, flavor='seurat_v3', n_top_genes=3000)`, please execute the following command in your terminal: `pip install -i https://test.pypi.org/simple/ scikit-misc==0.2.0rc1`.
 
-### 2. From GitHub
+### 2. From GitHub (Not recommend)
 
 ```
 git clone https://github.com/xkmaxidian/MNMST
@@ -53,6 +53,8 @@ cd <your dir path>/MNMST/MNMST-package
 python setup.py build
 python setup.py install
 ```
+
+Note: sometimes this way may need users install the require packages previous.
 
 ## Tutorial
 
