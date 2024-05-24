@@ -282,4 +282,8 @@ Please send any questions or found bugs to Xiaoke Ma [xkma@xidian.edu.cn](mailto
 
 ### Reference
 
-Our paper is under review.
+Please consider citing the following reference:
+
+- [https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03272-0](https://doi.org/10.1186/s13059-024-03272-0)
+
+
