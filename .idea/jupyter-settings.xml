@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JupyterPersistentConnectionParameters">
+    <option name="moduleParameters">
+      <map>
+        <entry key="$USER_HOME$/Desktop/STAGE-mainTest/.idea/STAGE-mainTest.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\f_stage\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../Banksy_py/.idea/Banksy_py.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\Users\bbchond\anaconda3\envs\banksy_env\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../DeepST - 副本 (2)/.idea/DeepST.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\deepl\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../DeepST/.idea/DeepST.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\DeepST\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../DeepST_SpatialPCA/.idea/DeepST.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\deepl\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../GraphST/.idea/GraphST.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\gpudeepl\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../MNMST-main/.idea/MNMST.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\Users\bbchond\anaconda3\envs\stACN\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../RE_SpatialPCA/.idea/RE_SpatialPCA.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\Users\bbchond\.conda\envs\deepl\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../STAGATE_pyG/.idea/STAGATE_pyG.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\Users\bbchond\anaconda3\envs\STAGATE_env\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../SpaDecon-main/.idea/SpaDecon-main.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\gpudeepl\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../SpaGCN/.idea/SpaGCN.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\stage\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/Banksy_py-main/.idea/Banksy_py-main.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\deepl\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/Descartes/.idea/Descartes.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\Descartes\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/MNMST-main/.idea/MNMST.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\Users\bbchond\anaconda3\envs\stACN\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/PROST-master/.idea/PROST-master.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/SANGO-main/.idea/SANGO-main.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\SANGO\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/SLAT-main/.idea/SLAT-main.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="F:\sources\code\STAGATE-main\venv\Scripts\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/STAGATE-main/.idea/STAGATE-main.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\deepl\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/STAGE-main/.idea/STAGE-main.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\Users\bbchond\anaconda3\envs\stACN\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/STAGE-main1/.idea/STAGE-main1.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\f_stage\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/STAGE-mainTest/.idea/STAGE-mainTest.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\f_stage\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/istar-master/.idea/istar-master.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\istar\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/siVAE-master/.idea/siVAE-master.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\deepl\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/spatac-main/.idea/spatac-main.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\deepl\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/stACN-master (2)/.idea/stACN-master (2).iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\Users\bbchond\anaconda3\envs\stACN\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/sources/code/stACN-master/.idea/stACN-master.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\Users\bbchond\anaconda3\envs\stACN\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="F:/st_project/IDCNMF/.idea/IDCNMF.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="C:\ProgramData\Anaconda3\envs\deepl\python.exe" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
